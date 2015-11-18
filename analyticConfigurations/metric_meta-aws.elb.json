@@ -1,0 +1,80 @@
+{
+  "analyticConfiguration" : {
+    "tenantId" : null,
+    "type" : "METRIC_META",
+    "id" : null,
+    "packageId" : null,
+    "name" : "AWS ELB",
+    "scope" : {
+      "elementName" : null,
+      "elementType" : "ELB",
+      "elementTags" : null
+    },
+    "metrics" : [ {
+      "match" : "aws.elb.requestcount",
+      "properties" : {
+        "STATISTIC" : "sum"
+      }
+    }, {
+      "match" : "aws.elb.httpcode.*",
+      "properties" : {
+        "STATISTIC" : "sum"
+      }
+    }, {
+      "match" : "aws.elb.backendconnectionerrors",
+      "properties" : {
+        "STATISTIC" : "sum"
+      }
+    }, {
+      "match" : "aws.elb.spillovercount",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero",
+        "STATISTIC" : "sum"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.surgequeueutilization",
+      "properties" : {
+        "tags" : {
+          "utilization" : true
+        },
+        "validMax" : 100
+      }
+    }, {
+      "match" : "aws.elb\\..*healthlyhostcount",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithLast"
+      }
+    }, {
+      "match" : "aws.elb.httpcode.*_3xx",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero"
+      }
+    }, {
+      "match" : "aws.elb.httpcode.*_4xx",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero"
+      }
+    }, {
+      "match" : "aws.elb.httpcode.*_5xx",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero"
+      }
+    }, {
+      "match" : "aws.elb.backendconnectionerrors",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero"
+      }
+    }, {
+      "match" : "aws.elb.surgequeuelength.*",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero",
+        "validMax" : 1024
+      }
+    }, {
+      "match" : ".*aws.elb\\..*percent.*",
+      "properties" : {
+        "validMax" : 100
+      }
+    } ]
+  }
+}

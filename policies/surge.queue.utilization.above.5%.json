@@ -1,0 +1,29 @@
+{
+  "policy" : {
+    "id" : null,
+    "name" : "Surge Queue Utilization Above 5%",
+    "description" : null,
+    "scope" : {
+      "elementName" : "",
+      "elementType" : "ELB",
+      "elementTags" : { }
+    },
+    "duration" : 900,
+    "conditions" : [ {
+      "metric" : "netuitive.aws.elb.surgequeueutilization",
+      "wildcard" : null,
+      "analytic" : "actual",
+      "operator" : ">",
+      "level" : 5.0
+    } ],
+    "actions" : [ {
+      "type" : "event",
+      "category" : 2
+    } ],
+    "enabled" : false,
+    "deleted" : false,
+    "originTenantId" : null,
+    "originPolicyId" : null,
+    "lastUpdated" : null
+  }
+}

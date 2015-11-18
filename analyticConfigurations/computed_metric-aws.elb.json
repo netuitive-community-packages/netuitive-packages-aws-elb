@@ -1,0 +1,106 @@
+{
+  "analyticConfiguration" : {
+    "tenantId" : null,
+    "type" : "COMPUTED_METRIC",
+    "id" : null,
+    "packageId" : null,
+    "name" : "AWS ELB",
+    "scope" : {
+      "elementName" : null,
+      "elementType" : "ELB",
+      "elementTags" : null
+    },
+    "metrics" : [ {
+      "match" : "netuitive.aws.elb.totalbackendhttperrors",
+      "properties" : {
+        "expression" : "data['aws.elb.httpcode_backend_4xx'] == null ? 0 + (data['aws.elb.httpcode_backend_5xx'] == null ? 0 : data['aws.elb.httpcode_backend_5xx'].actual) : data['aws.elb.httpcode_backend_4xx'].actual + (data['aws.elb.httpcode_backend_5xx'] == null ? 0 : data['aws.elb.httpcode_backend_5xx'].actual)",
+        "fqn" : "netuitive.aws.elb.totalbackendhttperrors",
+        "name" : "Total Backend HTTP Errors"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.totalelbhttperrors",
+      "properties" : {
+        "expression" : "data['aws.elb.httpcode_elb_4xx'] == null ? 0 + (data['aws.elb.httpcode_elb_5xx'] == null ? 0 : data['aws.elb.httpcode_elb_5xx'].actual) : data['aws.elb.httpcode_elb_4xx'].actual + (data['aws.elb.httpcode_elb_5xx'] == null ? 0 : data['aws.elb.httpcode_elb_5xx'].actual)",
+        "fqn" : "netuitive.aws.elb.totalelbhttperrors",
+        "name" : "Total ELB HTTP Errors"
+      }
+    }, {
+      "match" : "aws.elb.latency.avg",
+      "properties" : {
+        "expression" : "(data['aws.elb.latency'] == null || data['aws.elb.latency'].avg == null) ? 0 : data['aws.elb.latency'].avg",
+        "fqn" : "aws.elb.latency.avg",
+        "name" : "Avg Latency"
+      }
+    }, {
+      "match" : "aws.elb.latency.max",
+      "properties" : {
+        "expression" : "(data['aws.elb.latency'] == null || data['aws.elb.latency'].max == null) ? 0 : data['aws.elb.latency'].max",
+        "fqn" : "aws.elb.latency.max",
+        "name" : "Max Latency"
+      }
+    }, {
+      "match" : "aws.elb.surgequeuelength.avg",
+      "properties" : {
+        "expression" : "(data['aws.elb.surgequeuelength'] == null || data['aws.elb.surgequeuelength'].avg == null) ? 0.0 : data['aws.elb.surgequeuelength'].avg",
+        "fqn" : "aws.elb.surgequeuelength.avg",
+        "name" : "Avg Surge Queue Length"
+      }
+    }, {
+      "match" : "aws.elb.surgequeuelength.max",
+      "properties" : {
+        "expression" : "(data['aws.elb.surgequeuelength'] == null || data['aws.elb.surgequeuelength'].max == null) ? 0.0 : data['aws.elb.surgequeuelength'].max",
+        "fqn" : "aws.elb.surgequeuelength.max",
+        "name" : "Max Surge Queue Length"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.backendconnectionerrorpercent",
+      "properties" : {
+        "expression" : "(data['aws.elb.requestcount'].actual == 0 || data['aws.elb.backendconnectionerrors'] == null) ? 0 : (data['aws.elb.backendconnectionerrors'].actual / data['aws.elb.requestcount'].actual)*100",
+        "fqn" : "netuitive.aws.elb.backendconnectionerrorpercent",
+        "name" : "Backend Connection Error Percent"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.httpcodeelberrorpercent",
+      "properties" : {
+        "expression" : "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['netuitive.aws.elb.totalelbhttperrors'].actual / data['aws.elb.requestcount'].actual)",
+        "fqn" : "netuitive.aws.elb.httpcodeelberrorpercent",
+        "name" : "ELB HTTP Error Percent"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.httpcodebackenderrorpercent",
+      "properties" : {
+        "expression" : "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['netuitive.aws.elb.totalbackendhttperrors'].actual / data['aws.elb.requestcount'].actual)",
+        "fqn" : "netuitive.aws.elb.httpcodebackenderrorpercent",
+        "name" : "Backend HTTP Error Percent"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.concurrency",
+      "properties" : {
+        "expression" : "data['aws.elb.latency'].actual * data['aws.elb.requestcount'].actual / 300",
+        "fqn" : "netuitive.aws.elb.concurrency",
+        "name" : "Concurrency"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.surgequeueutilization",
+      "properties" : {
+        "expression" : "data['aws.elb.surgequeuelength.max'].actual / 1024 * 100",
+        "fqn" : "netuitive.aws.elb.surgequeueutilization",
+        "name" : "Surge Queue Utilization"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.unhealthyhostpercent",
+      "properties" : {
+        "expression" : "(data['aws.elb.unhealthyhostcount'].actual + data['aws.elb.healthyhostcount'].actual) == 0 ? 0 : (data['aws.elb.unhealthyhostcount'].actual / (data['aws.elb.unhealthyhostcount'].actual + data['aws.elb.healthyhostcount'].actual))*100",
+        "fqn" : "netuitive.aws.elb.unhealthyhostpercent",
+        "name" : "Unhealthy Host Percent"
+      }
+    }, {
+      "match" : "netuitive.aws.elb.requestspersecond",
+      "properties" : {
+        "expression" : "data['aws.elb.requestcount'].actual / 300.0",
+        "fqn" : "netuitive.aws.elb.requestspersecond",
+        "name" : "Requests per Second"
+      }
+    } ]
+  }
+}

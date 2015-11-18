@@ -1,0 +1,41 @@
+{
+  "policy" : {
+    "id" : null,
+    "name" : "Elevated Backend Error Rate (Low Volume)",
+    "description" : null,
+    "scope" : {
+      "elementName" : "",
+      "elementType" : "ELB",
+      "elementTags" : { }
+    },
+    "duration" : 900,
+    "conditions" : [ {
+      "metric" : "netuitive.aws.elb.httpcodebackenderrorpercent",
+      "wildcard" : null,
+      "analytic" : "baselineDeviation",
+      "operator" : ">",
+      "level" : null
+    }, {
+      "metric" : "netuitive.aws.elb.httpcodebackenderrorpercent",
+      "wildcard" : null,
+      "analytic" : "contextualDeviation",
+      "operator" : ">",
+      "level" : null
+    }, {
+      "metric" : "aws.elb.requestcount",
+      "wildcard" : null,
+      "analytic" : "actual",
+      "operator" : "<",
+      "level" : 1000.0
+    } ],
+    "actions" : [ {
+      "type" : "event",
+      "category" : 2
+    } ],
+    "enabled" : false,
+    "deleted" : false,
+    "originTenantId" : null,
+    "originPolicyId" : null,
+    "lastUpdated" : null
+  }
+}
