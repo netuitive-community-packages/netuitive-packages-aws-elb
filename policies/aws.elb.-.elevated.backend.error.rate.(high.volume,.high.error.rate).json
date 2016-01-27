@@ -1,8 +1,8 @@
 {
   "policy" : {
     "id" : null,
-    "name" : "Elevated Backend Error Rate (High Volume, Low Error Rate)",
-    "description" : "This is one of three policies that look at elevated backend error rates. For many customers, an error rate which is low enough is not cause for concern even if it is higher than normal. For example, if the normal error rate is between 0.25% and 0.75%, an observed error rate of 1.1% is higher than expected, but may not be worth more than a Warning. Thus, this policy looks for those cases where the error rate is higher than expected, but is under 2%. It also looks for traffic volumes to not be low, since the low traffic scenario is covered by the \"Elevated Backend Error Rate (Low Volume)\" policy. You may wish to tune either the 1,000 request count threshold, the 2% error threshold, or both, to better suit your environment.",
+    "name" : "AWS ELB - Elevated Backend Error Rate (High Volume, High Error Rate)",
+    "description" : "This is one of three policies that look at elevated backend error rates. In this case, we are looking for both high traffic volumes (> 1000) as well as error rates that are not just higher than normal, but are above the 2% threshold. In those cases, a Critical event will be generated. You may wish to tune either the 1,000 request count threshold, the 2% error threshold, or both, to better suit your environment.",
     "scope" : {
       "elementName" : "",
       "elementType" : "ELB",
@@ -25,7 +25,7 @@
       "metric" : "netuitive.aws.elb.httpcodebackenderrorpercent",
       "wildcard" : null,
       "analytic" : "actual",
-      "operator" : "<",
+      "operator" : ">=",
       "level" : 2.0
     }, {
       "metric" : "aws.elb.requestcount",
@@ -36,7 +36,7 @@
     } ],
     "actions" : [ {
       "type" : "event",
-      "category" : 2
+      "category" : 3
     } ],
     "enabled" : true,
     "deleted" : false,

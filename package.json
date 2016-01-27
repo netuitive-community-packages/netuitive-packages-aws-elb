@@ -18,41 +18,59 @@
   },
   "policies" : [ {
     "data" : {
-      "file" : "policies/elevated.backend.error.rate.(high.volume,.high.error.rate).json",
+      "file" : "policies/aws.elb.-.elevated.backend.error.rate.(high.volume,.high.error.rate).json",
       "encoding" : "application/json",
       "content" : null
     }
   }, {
     "data" : {
-      "file" : "policies/elevated.backend.error.rate.(high.volume,.low.error.rate).json",
+      "file" : "policies/aws.elb.-.elevated.backend.error.rate.(high.volume,.low.error.rate).json",
       "encoding" : "application/json",
       "content" : null
     }
   }, {
     "data" : {
-      "file" : "policies/elevated.backend.error.rate.(low.volume).json",
+      "file" : "policies/aws.elb.-.elevated.backend.error.rate.(low.volume).json",
       "encoding" : "application/json",
       "content" : null
     }
   }, {
     "data" : {
-      "file" : "policies/surge.queue.utilization.above.5%.json",
+      "file" : "policies/aws.elb.-.surge.queue.utilization.above.5%.json",
       "encoding" : "application/json",
       "content" : null
     }
   }, {
     "data" : {
-      "file" : "policies/surge.queue.utilization.above.50%.json",
+      "file" : "policies/aws.elb.-.surge.queue.utilization.above.50%.json",
       "encoding" : "application/json",
       "content" : null
     }
   }, {
     "data" : {
-      "file" : "policies/elevated.elb.latency.json",
+      "file" : "policies/aws.elb.-.elevated.latency.json",
       "encoding" : "application/json",
       "content" : null
     }
   } ],
-  "analyticConfigurations" : [ ],
+  "analyticConfigurations" : [ {
+    "data" : {
+      "file" : "analyticConfigurations/ace-aws.elb.json",
+      "encoding" : "application/json",
+      "content" : null
+    }
+  }, {
+    "data" : {
+      "file" : "analyticConfigurations/computed_metric-aws.elb.json",
+      "encoding" : "application/json",
+      "content" : null
+    }
+  }, {
+    "data" : {
+      "file" : "analyticConfigurations/metric_meta-aws.elb.json",
+      "encoding" : "application/json",
+      "content" : null
+    }
+  } ],
   "dashboards" : [ ]
 }

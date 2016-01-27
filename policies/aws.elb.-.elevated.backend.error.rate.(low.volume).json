@@ -1,7 +1,7 @@
 {
   "policy" : {
     "id" : null,
-    "name" : "Elevated Backend Error Rate (Low Volume)",
+    "name" : "AWS ELB - Elevated Backend Error Rate (Low Volume)",
     "description" : "This is the one of three policies that look at elevated backend error rates. This policy looks specifically at low traffic volume cases. When traffic volumes are low, elevated error rates tend to be less important. For example, a 50% error rate is pretty significant if the total number of requests is 1 million; it is less so if the total number of requests is 10. Thus, this policy will generate a Warning if error rates are higher than normal and traffic volumes are low. By default, \"low\" is defined as less than 1,000 requests; you may wish to tune this for your own environment.",
     "scope" : {
       "elementName" : "",
