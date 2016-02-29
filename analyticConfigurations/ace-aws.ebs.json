@@ -1,0 +1,63 @@
+{
+  "analyticConfiguration" : {
+    "tenantId" : null,
+    "type" : "ACE",
+    "id" : null,
+    "packageId" : null,
+    "name" : "AWS EBS",
+    "scope" : {
+      "elementName" : null,
+      "elementType" : "EBS",
+      "elementTags" : null
+    },
+    "metrics" : [ {
+      "match" : "aws.ebs.volumequeuelength",
+      "properties" : {
+        "baseline" : true,
+        "correlation" : true
+      }
+    }, {
+      "match" : "aws.ebs.volumethroughputpercentage",
+      "properties" : {
+        "baseline" : false,
+        "correlation" : false
+      }
+    }, {
+      "match" : "aws.ebs.volumeidletime",
+      "properties" : {
+        "baseline" : false,
+        "correlation" : false
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.averagelatency",
+      "properties" : {
+        "baseline" : true,
+        "correlation" : true
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.iops",
+      "properties" : {
+        "baseline" : true,
+        "correlation" : true
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.busypercent",
+      "properties" : {
+        "baseline" : true,
+        "correlation" : true
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.iopsutilization",
+      "properties" : {
+        "baseline" : true,
+        "correlation" : true
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.totalbytespersec",
+      "properties" : {
+        "baseline" : true,
+        "correlation" : true
+      }
+    } ]
+  }
+}
