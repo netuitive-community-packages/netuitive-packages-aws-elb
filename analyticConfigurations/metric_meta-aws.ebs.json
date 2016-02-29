@@ -1,0 +1,146 @@
+{
+  "analyticConfiguration" : {
+    "tenantId" : null,
+    "type" : "METRIC_META",
+    "id" : null,
+    "packageId" : null,
+    "name" : "AWS EBS",
+    "scope" : {
+      "elementName" : null,
+      "elementType" : "EBS",
+      "elementTags" : null
+    },
+    "metrics" : [ {
+      "match" : "aws.ebs.*read.*",
+      "properties" : {
+        "STATISTIC" : "sum"
+      }
+    }, {
+      "match" : "aws.ebs.*write.*",
+      "properties" : {
+        "STATISTIC" : "sum"
+      }
+    }, {
+      "match" : "aws.ebs.volumeidletime",
+      "properties" : {
+        "tags" : {
+          "unit" : "s"
+        },
+        "validMax" : 300
+      }
+    }, {
+      "match" : "aws.ebs.volumequeuelength",
+      "properties" : {
+        "STATISTIC" : "sum"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.busypercent",
+      "properties" : {
+        "tags" : {
+          "utilization" : true,
+          "unit" : "percent"
+        }
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.iopsutilization",
+      "properties" : {
+        "tags" : {
+          "utilization" : true,
+          "unit" : "percent"
+        },
+        "validMax" : 100
+      }
+    }, {
+      "match" : ".*aws.ebs\\..*percent.*",
+      "properties" : {
+        "validMax" : 100
+      }
+    }, {
+      "match" : "aws.ebs.volumereadbytes",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero",
+        "tags" : {
+          "unit" : "bytes"
+        }
+      }
+    }, {
+      "match" : "aws.ebs.volumetotalreadtime",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero",
+        "tags" : {
+          "unit" : "s"
+        }
+      }
+    }, {
+      "match" : "aws.ebs.volumetotalwritebytes",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero",
+        "tags" : {
+          "unit" : "bytes"
+        }
+      }
+    }, {
+      "match" : "aws.ebs.volumewritetime",
+      "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero",
+        "tags" : {
+          "unit" : "s"
+        }
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.queuelengthdifferential",
+      "properties" : {
+        "validMin" : null
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.totalbytes",
+      "properties" : {
+        "tags" : {
+          "unit" : "bytes"
+        }
+      }
+    }, {
+      "match" : "aws.ebs.volumethroughputpercentage",
+      "properties" : {
+        "tags" : {
+          "unit" : "percent"
+        }
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.*latency",
+      "properties" : {
+        "tags" : {
+          "unit" : "s"
+        }
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.*bytespersec",
+      "properties" : {
+        "tags" : {
+          "unit" : "Bps"
+        }
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.*iops",
+      "properties" : {
+        "tags" : {
+          "unit" : "iops"
+        }
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.readopspersec",
+      "properties" : {
+        "tags" : {
+          "unit" : "rps"
+        }
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.writeopspersec",
+      "properties" : {
+        "tags" : {
+          "unit" : "wps"
+        }
+      }
+    } ]
+  }
+}

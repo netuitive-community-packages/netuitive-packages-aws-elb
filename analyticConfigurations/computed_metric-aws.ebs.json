@@ -1,0 +1,127 @@
+{
+  "analyticConfiguration" : {
+    "tenantId" : null,
+    "type" : "COMPUTED_METRIC",
+    "id" : null,
+    "packageId" : null,
+    "name" : "AWS EBS",
+    "scope" : {
+      "elementName" : null,
+      "elementType" : "EBS",
+      "elementTags" : null
+    },
+    "metrics" : [ {
+      "match" : "netuitive.aws.ebs.totalops",
+      "properties" : {
+        "expression" : "data['aws.ebs.volumereadops'].actual + data['aws.ebs.volumewriteops'].actual",
+        "fqn" : "netuitive.aws.ebs.totalops",
+        "name" : "Total Ops"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.averagelatency",
+      "properties" : {
+        "expression" : "data['netuitive.aws.ebs.totalops'].actual == 0 ? 0 : (data['aws.ebs.volumetotalreadtime'].actual + data['aws.ebs.volumetotalwritetime'].actual) / data['netuitive.aws.ebs.totalops'].actual",
+        "fqn" : "netuitive.aws.ebs.averagelatency",
+        "name" : "Average Latency"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.readbytespersec",
+      "properties" : {
+        "expression" : "data['aws.ebs.volumereadbytes'].actual / 300.0",
+        "fqn" : "netuitive.aws.ebs.readbytespersec",
+        "name" : "Read Bytes Per Second"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.writebytespersec",
+      "properties" : {
+        "expression" : "data['aws.ebs.volumewritebytes'].actual / 300.0",
+        "fqn" : "netuitive.aws.ebs.writebytespersec",
+        "name" : "Write Bytes Per Second"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.averagereadlatency",
+      "properties" : {
+        "expression" : "(data['aws.ebs.volumetotalreadtime'].actual == 0 || data['aws.ebs.volumereadops'].actual) ? 0 : data['aws.ebs.volumetotalreadtime'].actual / data['aws.ebs.volumereadops'].actual",
+        "fqn" : "netuitive.aws.ebs.averagereadlatency",
+        "name" : "Average Read Latency"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.averagewritelatency",
+      "properties" : {
+        "expression" : "(data['aws.ebs.volumetotalwritetime'].actual == 0 || data['aws.ebs.volumewriteops'].actual) ? 0 : data['aws.ebs.volumetotalwritetime'].actual / data['aws.ebs.volumewriteops'].actual",
+        "fqn" : "netuitive.aws.ebs.averagewritelatency",
+        "name" : "Average Write Latency"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.readopspersec",
+      "properties" : {
+        "expression" : "data['aws.ebs.volumereadops'].actual / 300.0",
+        "fqn" : "netuitive.aws.ebs.readopspersec",
+        "name" : "Read Ops Per Second"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.writeopspersec",
+      "properties" : {
+        "expression" : "data['aws.ebs.volumewriteops'].actual / 300.0",
+        "fqn" : "netuitive.aws.ebs.writeopspersec",
+        "name" : "Write Ops Per Second"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.iops",
+      "properties" : {
+        "expression" : "data['netuitive.aws.ebs.totalops'].actual / 300.0",
+        "fqn" : "netuitive.aws.ebs.iops",
+        "name" : "IOPS"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.busypercent",
+      "properties" : {
+        "expression" : "100 - ((data['aws.ebs.volumeidletime'].actual == 0 ? 0 : data['aws.ebs.volumeidletime'].actual / 300) * 100)",
+        "fqn" : "netuitive.aws.ebs.busypercent",
+        "name" : "Busy Percent"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.queuelengthdifferential",
+      "properties" : {
+        "expression" : "data['aws.ebs.volumequeuelength'].actual - (data['netuitive.aws.ebs.iops'].actual == 0 ? 0 : data['netuitive.aws.ebs.iops'].actual / 200)",
+        "fqn" : "netuitive.aws.ebs.queuelengthdifferential",
+        "name" : "Queue Length Differential"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.iopsutilization",
+      "properties" : {
+        "expression" : "Math.min(100, (!attribute['iops'].value ? (data['netuitive.aws.ebs.iops'].actual / 300) : (data['netuitive.aws.ebs.iops'].actual / attribute['iops'].value))*100)",
+        "fqn" : "netuitive.aws.ebs.iopsutilization",
+        "name" : "IOPS Utilization"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.totalbytespersec",
+      "properties" : {
+        "expression" : "data['netuitive.aws.ebs.readbytespersec'].actual + data['netuitive.aws.ebs.writebytespersec'].actual",
+        "fqn" : "netuitive.aws.ebs.totalbytespersec",
+        "name" : "Total Bytes Per Second"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.totalbytes",
+      "properties" : {
+        "expression" : "data['aws.ebs.volumewritebytes'].actual + data['aws.ebs.volumereadbytes'].actual",
+        "fqn" : "netuitive.aws.ebs.totalbytes",
+        "name" : "Total Bytes"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.busytimebytespersecond",
+      "properties" : {
+        "expression" : "(data['aws.ebs.volumeidletime'].actual >= 300) ? 0 : data['netuitive.aws.ebs.totalbytes'].actual / (300.0 - Math.floor(data['aws.ebs.volumeidletime'].actual))",
+        "fqn" : "netuitive.aws.ebs.busytimebytespersecond",
+        "name" : "Busy Time Bytes Per Second"
+      }
+    }, {
+      "match" : "netuitive.aws.ebs.busytimeiops",
+      "properties" : {
+        "expression" : "(data['aws.ebs.volumeidletime'].actual >= 300) ? 0 : data['netuitive.aws.ebs.totalops'].actual / (300.0 - Math.floor(data['aws.ebs.volumeidletime'].actual))",
+        "fqn" : "netuitive.aws.ebs.busytimeiops",
+        "name" : "Busy Time IOPS"
+      }
+    } ]
+  }
+}
