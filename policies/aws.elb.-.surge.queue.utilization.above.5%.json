@@ -14,7 +14,10 @@
       "wildcard" : null,
       "analytic" : "actual",
       "operator" : ">",
-      "level" : 5.0
+      "level" : 5.0,
+      "level2" : null,
+      "metricThresholdLevel" : null,
+      "metricThresholdAnalytic" : null
     } ],
     "actions" : [ {
       "type" : "event",
