@@ -141,6 +141,13 @@
           "unit" : "wps"
         }
       }
+    }, {
+      "match" : "netuitive.aws.ebs.busytimebytespersecond",
+      "properties" : {
+        "tags" : {
+          "unit" : "Bps"
+        }
+      }
     } ]
   }
 }
