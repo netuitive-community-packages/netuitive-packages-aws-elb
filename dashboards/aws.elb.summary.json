@@ -16,7 +16,7 @@
     "userId" : null,
     "creatorEmail" : null,
     "created" : "2016-02-19T20:10:43Z",
-    "updated" : "2016-02-19T20:10:43Z",
+    "updated" : "2016-02-29T16:27:36Z",
     "widgets" : [ {
       "id" : "d2079292-70ae-3a32-96c7-a3a7533a2af5",
       "name" : "ELB Data",
@@ -30,7 +30,6 @@
         "metricLimit" : "10",
         "elementScopeTypes" : "[\"ELB\"]",
         "metricUnit" : null,
-        "metrics__delete" : "[{\"fqn\":\"aws.elb.healthyhostcount\",\"aggFn\":\"sum\"},{\"fqn\":\"aws.elb.unhealthyhostcount\",\"aggFn\":\"sum\"}]",
         "groupName" : null,
         "showHighest" : "true",
         "elementNameContains" : null,
@@ -41,41 +40,44 @@
       },
       "dashboardId" : null,
       "userId" : null,
-      "created" : "2016-02-19T20:10:43Z",
-      "updated" : "2016-02-19T20:10:43Z"
+      "created" : "2016-02-29T16:27:36Z",
+      "updated" : "2016-02-29T16:27:36Z"
     }, {
       "id" : "189ef445-92a6-3598-8df8-093784464302",
       "name" : "ELB Metric Aggregation",
       "description" : null,
       "widgetType" : "metric-count-agg",
       "properties" : {
+        "visualization" : null,
         "showElementTotal" : "true",
         "selectedAttributes" : "[]",
+        "elementScopeTags" : "[]",
         "useElementNameContains" : "true",
         "element_id" : null,
-        "metricLimit" : "10",
         "elementScopeTypes" : "[\"ELB\"]",
+        "metricLimit" : "10",
         "metricUnit" : null,
-        "metrics__delete" : "[{\"fqn\":\"netuitive.aws.elb.surgequeueutilization\",\"aggFn\":\"sum\"},{\"fqn\":\"netuitive.aws.elb.totalelbhttperrors\",\"aggFn\":\"sum\"},{\"fqn\":\"netuitive.aws.elb.unhealthyhostpercent\",\"aggFn\":\"sum\"}]",
+        "metricAggs" : "[]",
+        "elementScopeIds" : "[]",
+        "elementScopeAttributes" : "[]",
         "groupName" : null,
-        "showHighest" : "true",
         "elementNameContains" : null,
+        "showHighest" : "true",
         "metric_fqn" : null,
         "width" : "medium",
-        "metrics" : "[{\"fqn\":\"netuitive.aws.elb.surgequeueutilization\",\"aggFns\":[],\"aggFn\":\"sum\"},{\"fqn\":\"netuitive.aws.elb.totalelbhttperrors\",\"aggFns\":[],\"aggFn\":\"sum\"},{\"fqn\":\"netuitive.aws.elb.unhealthyhostpercent\",\"aggFns\":[],\"aggFn\":\"sum\"}]",
+        "metrics" : "[{\"fqn\":\"netuitive.aws.elb.surgequeueutilization\",\"aggFns\":[],\"aggFn\":\"avg\"},{\"fqn\":\"netuitive.aws.elb.totalelbhttperrors\",\"aggFns\":[],\"aggFn\":\"avg\"},{\"fqn\":\"netuitive.aws.elb.unhealthyhostpercent\",\"aggFns\":[],\"aggFn\":\"avg\"}]",
         "selectedTab" : "table"
       },
       "dashboardId" : null,
       "userId" : null,
-      "created" : "2016-02-19T20:10:43Z",
-      "updated" : "2016-02-19T20:10:43Z"
+      "created" : "2016-02-29T16:27:36Z",
+      "updated" : "2016-03-11T16:40:26Z"
     }, {
       "id" : "c7509075-9d03-3be2-8f71-05265d15dadd",
       "name" : "Top 5 Unhealthy ELB",
       "description" : null,
       "widgetType" : "high-low-metric",
       "properties" : {
-        "metrics__delete" : "[]",
         "showHighest" : "true",
         "metric_fqn" : "aws.elb.unhealthyhostcount",
         "showElementTotal" : "true",
@@ -89,34 +91,8 @@
       },
       "dashboardId" : null,
       "userId" : null,
-      "created" : "2016-02-19T20:10:43Z",
-      "updated" : "2016-02-19T20:10:43Z"
-    }, {
-      "id" : "192498c4-a818-397f-95c4-973e12b60876",
-      "name" : "Top 10 Slowest ELB",
-      "description" : null,
-      "widgetType" : "high-low-metric",
-      "properties" : {
-        "showElementTotal" : "true",
-        "selectedAttributes" : "[]",
-        "useElementNameContains" : "true",
-        "element_id" : null,
-        "metricLimit" : "10",
-        "elementScopeTypes" : "[\"ELB\"]",
-        "metricUnit" : null,
-        "metrics__delete" : "[]",
-        "groupName" : null,
-        "showHighest" : "true",
-        "elementNameContains" : null,
-        "metric_fqn" : "aws.elb.latency.avg",
-        "width" : "auto",
-        "metrics" : "[]",
-        "selectedTab" : "graph"
-      },
-      "dashboardId" : null,
-      "userId" : null,
-      "created" : "2016-02-19T20:10:43Z",
-      "updated" : "2016-02-19T20:10:43Z"
+      "created" : "2016-02-29T16:27:36Z",
+      "updated" : "2016-02-29T16:27:36Z"
     }, {
       "id" : "bdc07e34-c4c7-3e6d-8ff4-d29b2d9ad40a",
       "name" : "Top 10 Highest Surge Queue Lengths",
@@ -130,7 +106,6 @@
         "metricLimit" : "10",
         "elementScopeTypes" : "[\"ELB\"]",
         "metricUnit" : null,
-        "metrics__delete" : "[]",
         "groupName" : null,
         "showHighest" : "true",
         "elementNameContains" : null,
@@ -141,9 +116,35 @@
       },
       "dashboardId" : null,
       "userId" : null,
-      "created" : "2016-02-19T20:10:43Z",
-      "updated" : "2016-02-19T20:10:43Z"
+      "created" : "2016-02-29T16:27:36Z",
+      "updated" : "2016-02-29T16:27:36Z"
+    }, {
+      "id" : "192498c4-a818-397f-95c4-973e12b60876",
+      "name" : "Top 10 Slowest ELB",
+      "description" : null,
+      "widgetType" : "high-low-metric",
+      "properties" : {
+        "showElementTotal" : "true",
+        "selectedAttributes" : "[]",
+        "useElementNameContains" : "true",
+        "element_id" : null,
+        "metricLimit" : "10",
+        "elementScopeTypes" : "[\"ELB\"]",
+        "metricUnit" : null,
+        "groupName" : null,
+        "showHighest" : "true",
+        "elementNameContains" : null,
+        "metric_fqn" : "aws.elb.latency.avg",
+        "width" : "auto",
+        "metrics" : "[]",
+        "selectedTab" : "graph"
+      },
+      "dashboardId" : null,
+      "userId" : null,
+      "created" : "2016-02-29T16:27:36Z",
+      "updated" : "2016-02-29T16:27:36Z"
     } ],
+    "type" : "DEFAULT",
     "private" : false
   }
 }
