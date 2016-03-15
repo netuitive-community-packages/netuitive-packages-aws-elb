@@ -124,18 +124,6 @@
         "baseline" : false,
         "correlation" : false
       }
-    }, {
-      "match" : "aws.elb.latency.avg",
-      "properties" : {
-        "baseline" : true,
-        "correlation" : true
-      }
-    }, {
-      "match" : "aws.elb.latency.max",
-      "properties" : {
-        "baseline" : true,
-        "correlation" : true
-      }
     } ]
   }
 }
