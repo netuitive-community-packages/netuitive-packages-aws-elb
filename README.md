@@ -2,6 +2,10 @@
 
 ##Release History
 
+###Version 1.2.1
+
+* Fixed two minor packaging bugs.
+
 ###Version 1.2.0
 
 * Removed obsolete computed metrics.
