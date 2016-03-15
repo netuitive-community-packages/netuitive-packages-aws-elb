@@ -1,6 +1,10 @@
-#netuitive.packages.aws.elb 1.2.0
+#netuitive.packages.aws.elb 1.2.1
 
 ##Release History
+
+###Version 1.2.1
+
+* Fixed two minor packaging bugs.
 
 ###Version 1.2.0
 
