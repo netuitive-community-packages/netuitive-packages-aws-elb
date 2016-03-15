@@ -1,4 +1,4 @@
-#netuitive.packages.aws.elb 1.2.0
+#netuitive.packages.aws.elb 1.2.1
 
 ##Release History
 
