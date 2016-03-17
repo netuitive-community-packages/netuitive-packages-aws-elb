@@ -18,6 +18,12 @@
   },
   "policies" : [ {
     "data" : {
+      "file" : "policies/aws.elb.-.elevated.backend.error.rate.(high.volume,.high.error.rate).json",
+      "encoding" : "application/json",
+      "content" : null
+    }
+  }, {
+    "data" : {
       "file" : "policies/aws.elb.-.elevated.backend.error.rate.(high.volume,.low.error.rate).json",
       "encoding" : "application/json",
       "content" : null
@@ -49,19 +55,19 @@
   } ],
   "analyticConfigurations" : [ {
     "data" : {
-      "file" : "analyticConfigurations/ace-aws.ebs.json",
+      "file" : "analyticConfigurations/ace-aws.elb.json",
       "encoding" : "application/json",
       "content" : null
     }
   }, {
     "data" : {
-      "file" : "analyticConfigurations/computed_metric-aws.ebs.json",
+      "file" : "analyticConfigurations/computed_metric-aws.elb.json",
       "encoding" : "application/json",
       "content" : null
     }
   }, {
     "data" : {
-      "file" : "analyticConfigurations/metric_meta-aws.ebs.json",
+      "file" : "analyticConfigurations/metric_meta-aws.elb.json",
       "encoding" : "application/json",
       "content" : null
     }

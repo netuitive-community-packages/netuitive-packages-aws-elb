@@ -3,8 +3,12 @@
 ##Release History
 
 ###Version 1.3.0
-* Added RDS-specific element detail page.
+* Added ELB-specific element detail page.
 * Changed "sum" to "avg" on summary dashboard widgets.
+
+###Version 1.2.1
+
+* Fixed two minor packaging bugs.
 
 ###Version 1.2.0
 
