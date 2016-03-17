@@ -16,6 +16,13 @@
         "STATISTIC" : "sum"
       }
     }, {
+      "match" : "aws.elb.latency",
+      "properties" : {
+        "tags" : {
+          "unit" : "s"
+        }
+      }
+    }, {
       "match" : "aws.elb.httpcode.*",
       "properties" : {
         "STATISTIC" : "sum"
@@ -35,7 +42,8 @@
       "match" : "netuitive.aws.elb.surgequeueutilization",
       "properties" : {
         "tags" : {
-          "utilization" : true
+          "utilization" : true,
+          "unit" : "percent"
         },
         "validMax" : 100
       }
@@ -73,7 +81,17 @@
     }, {
       "match" : ".*aws.elb\\..*percent.*",
       "properties" : {
+        "tags" : {
+          "unit" : "percent"
+        },
         "validMax" : 100
+      }
+    }, {
+      "match" : "netuitive.aws.elb.requestspersecond",
+      "properties" : {
+        "tags" : {
+          "unit" : "ops"
+        }
       }
     } ]
   }
