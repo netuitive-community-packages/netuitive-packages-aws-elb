@@ -5,6 +5,7 @@
 ###Version 1.3.0
 * Added ELB-specific element detail page.
 * Changed "sum" to "avg" on summary dashboard widgets.
+* Updated 2 widgets on summary dashboard that were still using obsolete metrics.
 
 ###Version 1.2.1
 
