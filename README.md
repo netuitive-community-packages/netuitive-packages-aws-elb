@@ -1,8 +1,11 @@
 #netuitive.packages.aws.elb 1.3.0
 
+For detailed information on this package, please refer to the [online documentation](https://help.app.netuitive.com/Content/Misc/Datasources/AWS/new_aws_datasource.htm).
+
 ##Release History
 
 ###Version 1.3.0
+
 * Added ELB-specific element detail page.
 * Changed "sum" to "avg" on summary dashboard widgets.
 * Updated 2 widgets on summary dashboard that were still using obsolete metrics.
