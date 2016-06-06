@@ -89,12 +89,6 @@
         "correlation" : false
       }
     }, {
-      "match" : "aws.elb.latency",
-      "properties" : {
-        "baseline" : true,
-        "correlation" : true
-      }
-    }, {
       "match" : "netuitive.aws.elb.unhealthyhostpercent",
       "properties" : {
         "baseline" : true,
