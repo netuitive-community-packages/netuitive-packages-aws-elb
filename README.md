@@ -1,8 +1,13 @@
-#netuitive.packages.aws.elb 1.3.0
+#netuitive.packages.aws.elb 1.3.1
 
 For detailed information on this package, please refer to the [online documentation](https://help.app.netuitive.com/Content/Misc/Datasources/AWS/new_aws_datasource.htm).
 
 ##Release History
+
+###Version 1.3.1
+
+* Fixed bug with the Events widget on the Element Detail Page.
+* Removed configuration details for old, obsolete metrics.
 
 ###Version 1.3.0
 
