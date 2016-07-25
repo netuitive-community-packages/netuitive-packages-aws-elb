@@ -5,6 +5,9 @@
     "description" : "This is one of three policies that look at elevated backend error rates. In this case, we are looking for both high traffic volumes (> 1000) as well as error rates that are not just higher than normal, but are above the 2% threshold. In those cases, a Critical event will be generated. You may wish to tune either the 1,000 request count threshold, the 2% error threshold, or both, to better suit your environment.",
     "scope" : {
       "elementName" : "",
+      "elementNameExclude" : null,
+      "fqnIncludes" : [ ],
+      "fqnExcludes" : [ ],
       "elementType" : "ELB",
       "elementTags" : { }
     },
@@ -12,6 +15,7 @@
     "conditions" : [ {
       "metric" : "netuitive.aws.elb.httpcodebackenderrorpercent",
       "wildcard" : null,
+      "metricScopeTags" : { },
       "analytic" : "baselineDeviation",
       "operator" : ">",
       "level" : null,
@@ -21,6 +25,7 @@
     }, {
       "metric" : "netuitive.aws.elb.httpcodebackenderrorpercent",
       "wildcard" : null,
+      "metricScopeTags" : { },
       "analytic" : "contextualDeviation",
       "operator" : ">",
       "level" : null,
@@ -30,6 +35,7 @@
     }, {
       "metric" : "netuitive.aws.elb.httpcodebackenderrorpercent",
       "wildcard" : null,
+      "metricScopeTags" : { },
       "analytic" : "actual",
       "operator" : ">=",
       "level" : 2.0,
@@ -39,6 +45,7 @@
     }, {
       "metric" : "aws.elb.requestcount",
       "wildcard" : null,
+      "metricScopeTags" : { },
       "analytic" : "actual",
       "operator" : ">=",
       "level" : 1000.0,
@@ -46,6 +53,7 @@
       "metricThresholdLevel" : null,
       "metricThresholdAnalytic" : null
     } ],
+    "eventConditions" : [ ],
     "actions" : [ {
       "type" : "event",
       "category" : 3
