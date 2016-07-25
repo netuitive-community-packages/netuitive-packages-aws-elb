@@ -8,7 +8,8 @@
     "scope" : {
       "elementName" : null,
       "elementType" : "ELB",
-      "elementTags" : null
+      "elementTags" : null,
+      "metricMatches" : null
     },
     "metrics" : [ {
       "match" : "aws.elb.requestcount",
@@ -18,6 +19,7 @@
     }, {
       "match" : "aws.elb.latency",
       "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero",
         "tags" : {
           "unit" : "s"
         }
@@ -25,6 +27,7 @@
     }, {
       "match" : "aws.elb.httpcode.*",
       "properties" : {
+        "sparseDataStrategy" : "ReplaceWithZero",
         "STATISTIC" : "sum"
       }
     }, {
@@ -51,21 +54,6 @@
       "match" : "aws.elb\\..*healthlyhostcount",
       "properties" : {
         "sparseDataStrategy" : "ReplaceWithLast"
-      }
-    }, {
-      "match" : "aws.elb.httpcode.*_3xx",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero"
-      }
-    }, {
-      "match" : "aws.elb.httpcode.*_4xx",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero"
-      }
-    }, {
-      "match" : "aws.elb.httpcode.*_5xx",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero"
       }
     }, {
       "match" : "aws.elb.backendconnectionerrors",
