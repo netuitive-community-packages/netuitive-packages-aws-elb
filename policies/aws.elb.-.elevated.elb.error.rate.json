@@ -1,19 +1,19 @@
 {
   "policy" : {
     "id" : null,
-    "name" : "AWS ELB - Elevated Latency",
-    "description" : "This policy will generate a Critical event when average latency is higher than normal for half an hour or longer. Note that there must also be a minimum number of requests for this policy to trigger; this is because with too few requests, the average can tend to be skewed by outliers. The default request threshold is 1,000; you may wish to tune this for your environment.",
+    "name" : "AWS ELB - Elevated ELB Error Rate",
+    "description" : "This is another error rate policy, but rather than looking at backend error rates, it is looking at errors from the ELB itself.  In this case, we look for both high traffic volumes (> 1000) as well as error rates that are not just higher than normal, but are above a 2% threshold. In those cases, a Critical event will be generated. You may wish to tune either the 1,000 request count threshold, the 2% error threshold, or both, to better suit your environment.",
     "scope" : {
-      "elementName" : "",
+      "elementName" : null,
       "elementNameExclude" : null,
       "fqnIncludes" : [ ],
       "fqnExcludes" : [ ],
       "elementType" : "ELB",
       "elementTags" : { }
     },
-    "duration" : 1800,
+    "duration" : 900,
     "conditions" : [ {
-      "metric" : "aws.elb.latency",
+      "metric" : "netuitive.aws.elb.httpcodeelberrorpercent",
       "wildcard" : null,
       "metricScopeTags" : { },
       "analytic" : "baselineDeviation",
@@ -23,12 +23,22 @@
       "metricThresholdLevel" : null,
       "metricThresholdAnalytic" : null
     }, {
-      "metric" : "aws.elb.latency",
+      "metric" : "netuitive.aws.elb.httpcodeelberrorpercent",
       "wildcard" : null,
       "metricScopeTags" : { },
       "analytic" : "contextualDeviation",
       "operator" : ">",
       "level" : null,
+      "level2" : null,
+      "metricThresholdLevel" : null,
+      "metricThresholdAnalytic" : null
+    }, {
+      "metric" : "netuitive.aws.elb.httpcodeelberrorpercent",
+      "wildcard" : null,
+      "metricScopeTags" : { },
+      "analytic" : "actual",
+      "operator" : ">=",
+      "level" : 2.0,
       "level2" : null,
       "metricThresholdLevel" : null,
       "metricThresholdAnalytic" : null
@@ -47,10 +57,6 @@
     "actions" : [ {
       "type" : "event",
       "category" : 3
-    }, {
-      "type" : "notification",
-      "id" : 23513,
-      "enabled" : true
     } ],
     "enabled" : true,
     "deleted" : false,
