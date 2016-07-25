@@ -8,7 +8,8 @@
     "scope" : {
       "elementName" : null,
       "elementType" : "ELB",
-      "elementTags" : null
+      "elementTags" : null,
+      "metricMatches" : null
     },
     "metrics" : [ {
       "match" : "aws.elb.backendconnectionerrors",
@@ -67,8 +68,8 @@
     }, {
       "match" : "aws.elb.latency",
       "properties" : {
-        "baseline" : false,
-        "correlation" : false
+        "baseline" : true,
+        "correlation" : true
       }
     }, {
       "match" : "aws.elb.requestcount",
@@ -91,8 +92,8 @@
     }, {
       "match" : "netuitive.aws.elb.unhealthyhostpercent",
       "properties" : {
-        "baseline" : true,
-        "correlation" : true
+        "baseline" : false,
+        "correlation" : false
       }
     }, {
       "match" : "netuitive.aws.elb.backendconnectionerrorpercent",
