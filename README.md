@@ -1,8 +1,13 @@
-#netuitive.packages.aws.elb 1.4.0
+#netuitive.packages.aws.elb 1.4.1
 
 For detailed information on this package, please refer to the [online documentation](https://help.app.netuitive.com/Content/Misc/Datasources/AWS/new_aws_datasource.htm).
 
 ##Release History
+
+###Version 1.4.1
+
+* Fixed a bug with policies that had a Warning version and a Critical version; whenever the Critical version fired, the Warning was firing at the same time.
+* Updated package compatibility configuration.
 
 ###Version 1.4.0
 

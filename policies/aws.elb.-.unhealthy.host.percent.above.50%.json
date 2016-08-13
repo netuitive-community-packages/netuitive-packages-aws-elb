@@ -17,8 +17,18 @@
       "wildcard" : null,
       "metricScopeTags" : { },
       "analytic" : "actual",
-      "operator" : ">",
+      "operator" : ">=",
       "level" : 50.0,
+      "level2" : null,
+      "metricThresholdLevel" : null,
+      "metricThresholdAnalytic" : null
+    }, {
+      "metric" : "netuitive.aws.elb.unhealthyhostpercent",
+      "wildcard" : null,
+      "metricScopeTags" : { },
+      "analytic" : "actual",
+      "operator" : "<=",
+      "level" : 75.0,
       "level2" : null,
       "metricThresholdLevel" : null,
       "metricThresholdAnalytic" : null
