@@ -4,7 +4,7 @@
     "name" : "AWS ELB - Surge Queue Utilization Above 50%",
     "description" : "The ELB surge queue holds requests until they can be forwarded to the backend servers. The surge queue can hold a maximum of 1,024 requests, after which it will be full and will start rejecting requests. Netuitive's Surge Queue Utilization metric reflects as a percentage how full the surge queue currently is. If the surge queue is more than 50% full for 15 minutes or longer, a Critical event is generated.",
     "scope" : {
-      "elementName" : "",
+      "elementName" : null,
       "elementNameExclude" : null,
       "fqnIncludes" : [ ],
       "fqnExcludes" : [ ],
@@ -27,10 +27,6 @@
     "actions" : [ {
       "type" : "event",
       "category" : 3
-    }, {
-      "type" : "notification",
-      "id" : 23513,
-      "enabled" : true
     } ],
     "enabled" : true,
     "deleted" : false,
