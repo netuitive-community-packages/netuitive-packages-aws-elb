@@ -28,7 +28,7 @@
       "type" : "event",
       "category" : 3
     } ],
-    "enabled" : true,
+    "enabled" : false,
     "deleted" : false,
     "originTenantId" : null,
     "originPolicyId" : null,

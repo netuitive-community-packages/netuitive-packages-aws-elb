@@ -1,8 +1,12 @@
-#netuitive.packages.aws.elb 1.4.1
+#netuitive.packages.aws.elb 1.4.2
 
 For detailed information on this package, please refer to the [online documentation](https://help.app.netuitive.com/Content/Misc/Datasources/AWS/new_aws_datasource.htm).
 
 ##Release History
+
+###Version 1.4.2
+
+* Changed the Unhealthy Host Percent policies to be disabled by default, as they can be noisy for some customers.
 
 ###Version 1.4.1
 
