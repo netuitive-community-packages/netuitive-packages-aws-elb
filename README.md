@@ -1,8 +1,17 @@
-#netuitive.packages.aws.elb 1.4.2
+#netuitive.packages.aws.elb 1.5.0
 
 For detailed information on this package, please refer to the [online documentation](https://help.app.netuitive.com/Content/Misc/Datasources/AWS/new_aws_datasource.htm).
 
 ##Release History
+
+###Version 1.5.0
+
+* Added four new computed metrics:
+ * netuitive.aws.elb.httpcodeelb4xxerrorpercent
+ * netuitive.aws.elb.httpcodeelb5xxerrorpercent
+ * netuitive.aws.elb.httpcodebackend4xxerrorpercent
+ * netuitive.aws.elb.httpcodebackend5xxerrorpercent
+* Added sparse data strategy of "replace with zero" for the request count metric.
 
 ###Version 1.4.2
 
