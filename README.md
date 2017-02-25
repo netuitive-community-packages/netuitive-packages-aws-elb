@@ -1,8 +1,12 @@
-#netuitive.packages.aws.elb 1.5.0
+#netuitive.packages.aws.elb 1.6.0
 
 For detailed information on this package, please refer to the [online documentation](https://help.netuitive.com/Content/Integrations/aws.htm).
 
 ##Release History
+
+###Version 1.6.0
+
+* Updated gridstack dashboard layouts
 
 ###Version 1.5.0
 
