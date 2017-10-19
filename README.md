@@ -1,8 +1,13 @@
-# netuitive.packages.aws.elb 1.6.1
+# netuitive.packages.aws.elb
 
 For detailed information on this package, please refer to the [online documentation](https://help.netuitive.com/Content/Integrations/aws.htm).
 
 ## Release History
+
+### Version 1.7.0
+
+* Updated element details dashboard layout
+* Updated summary dashboard for new widget configs
 
 ### Version 1.6.1
 
@@ -67,4 +72,3 @@ For detailed information on this package, please refer to the [online documentat
 ### Version 1.0.0
 
 * Initial production release of the package for monitoring AWS Elastic Load Balancer (ELB) resources.
-
