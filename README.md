@@ -7,6 +7,7 @@ For detailed information on this package, please refer to the [online documentat
 ### Version next
 
 * Adjusted build to use metricly-cli for validation
+* Applied ReplaceWithZero sparseDataStrategy for healthyhostcount and unhealthyhostcount metrics
 
 ### Version 1.7.0
 
