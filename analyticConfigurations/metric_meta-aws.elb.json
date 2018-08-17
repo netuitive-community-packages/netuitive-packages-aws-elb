@@ -1,87 +1,93 @@
 {
-  "analyticConfiguration" : {
-    "tenantId" : null,
-    "type" : "METRIC_META",
-    "id" : null,
-    "packageId" : null,
-    "name" : "AWS ELB",
-    "scope" : {
-      "elementName" : null,
-      "elementType" : "ELB",
-      "elementTags" : null,
-      "metricMatches" : null
+  "analyticConfiguration": {
+    "metrics": [
+      {
+        "match": "aws.elb.requestcount",
+        "properties": {
+          "STATISTIC": "sum",
+          "sparseDataStrategy": "ReplaceWithZero"
+        }
+      },
+      {
+        "match": "aws.elb.latency",
+        "properties": {
+          "sparseDataStrategy": "ReplaceWithZero",
+          "tags": {
+            "unit": "s"
+          }
+        }
+      },
+      {
+        "match": "aws.elb.httpcode.*",
+        "properties": {
+          "STATISTIC": "sum",
+          "sparseDataStrategy": "ReplaceWithZero"
+        }
+      },
+      {
+        "match": "aws.elb.backendconnectionerrors",
+        "properties": {
+          "STATISTIC": "sum"
+        }
+      },
+      {
+        "match": "aws.elb.spillovercount",
+        "properties": {
+          "STATISTIC": "sum",
+          "sparseDataStrategy": "ReplaceWithZero"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.surgequeueutilization",
+        "properties": {
+          "tags": {
+            "unit": "percent",
+            "utilization": true
+          },
+          "validMax": 100
+        }
+      },
+      {
+        "match": "aws.elb\\..*healthyhostcount",
+        "properties": {
+          "sparseDataStrategy": "ReplaceWithZero"
+        }
+      },
+      {
+        "match": "aws.elb.backendconnectionerrors",
+        "properties": {
+          "sparseDataStrategy": "ReplaceWithZero"
+        }
+      },
+      {
+        "match": "aws.elb.surgequeuelength.*",
+        "properties": {
+          "sparseDataStrategy": "ReplaceWithZero",
+          "validMax": 1024
+        }
+      },
+      {
+        "match": ".*aws.elb\\..*percent.*",
+        "properties": {
+          "tags": {
+            "unit": "percent"
+          },
+          "validMax": 100
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.requestspersecond",
+        "properties": {
+          "tags": {
+            "unit": "ops"
+          }
+        }
+      }
+    ],
+    "name": "AWS ELB",
+    "scope": {
+      "elementType": "ELB"
     },
-    "metrics" : [ {
-      "match" : "aws.elb.requestcount",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero",
-        "STATISTIC" : "sum"
-      }
-    }, {
-      "match" : "aws.elb.latency",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero",
-        "tags" : {
-          "unit" : "s"
-        }
-      }
-    }, {
-      "match" : "aws.elb.httpcode.*",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero",
-        "STATISTIC" : "sum"
-      }
-    }, {
-      "match" : "aws.elb.backendconnectionerrors",
-      "properties" : {
-        "STATISTIC" : "sum"
-      }
-    }, {
-      "match" : "aws.elb.spillovercount",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero",
-        "STATISTIC" : "sum"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.surgequeueutilization",
-      "properties" : {
-        "tags" : {
-          "utilization" : true,
-          "unit" : "percent"
-        },
-        "validMax" : 100
-      }
-    }, {
-      "match" : "aws.elb\\..*healthyhostcount",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero"
-      }
-    }, {
-      "match" : "aws.elb.backendconnectionerrors",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero"
-      }
-    }, {
-      "match" : "aws.elb.surgequeuelength.*",
-      "properties" : {
-        "sparseDataStrategy" : "ReplaceWithZero",
-        "validMax" : 1024
-      }
-    }, {
-      "match" : ".*aws.elb\\..*percent.*",
-      "properties" : {
-        "tags" : {
-          "unit" : "percent"
-        },
-        "validMax" : 100
-      }
-    }, {
-      "match" : "netuitive.aws.elb.requestspersecond",
-      "properties" : {
-        "tags" : {
-          "unit" : "ops"
-        }
-      }
-    } ]
+    "type": "METRIC_META"
   }
 }

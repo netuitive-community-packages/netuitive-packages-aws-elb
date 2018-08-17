@@ -1,107 +1,76 @@
 {
-  "dashboard" : {
-    "name" : "AWS ELB Summary",
-    "description" : null,
-    "layout" : null,
-    "properties" : {
-      "integrationType" : null,
-      "timeRangeDuration" : "3600",
-      "gridstackContents" : "[{\"id\":\"eddebbe1-1144-42ac-8dff-33957da742d2\",\"x\":8,\"y\":8,\"width\":4,\"height\":9},{\"id\":\"bccc39bb-d0ee-4f35-9f0c-dac9c682a559\",\"x\":4,\"y\":8,\"width\":4,\"height\":9},{\"id\":\"cd230a8c-62b8-4b68-965d-7dbcb0f6302f\",\"x\":0,\"y\":8,\"width\":4,\"height\":9},{\"id\":\"37eb8e46-2acf-467d-8395-0c68cc66da2f\",\"x\":0,\"y\":0,\"width\":12,\"height\":8}]",
-      "refreshIntervalSeconds" : "300",
-      "wrap" : "true"
+  "dashboard": {
+    "name": "AWS ELB Summary",
+    "private": false,
+    "properties": {
+      "gridstackContents": "[{\"id\":\"eddebbe1-1144-42ac-8dff-33957da742d2\",\"x\":8,\"y\":8,\"width\":4,\"height\":9},{\"id\":\"bccc39bb-d0ee-4f35-9f0c-dac9c682a559\",\"x\":4,\"y\":8,\"width\":4,\"height\":9},{\"id\":\"cd230a8c-62b8-4b68-965d-7dbcb0f6302f\",\"x\":0,\"y\":8,\"width\":4,\"height\":9},{\"id\":\"37eb8e46-2acf-467d-8395-0c68cc66da2f\",\"x\":0,\"y\":0,\"width\":12,\"height\":8}]",
+      "refreshIntervalSeconds": "300",
+      "timeRangeDuration": "3600",
+      "wrap": "true"
     },
-    "widgets" : [ {
-      "id" : "eddebbe1-1144-42ac-8dff-33957da742d2",
-      "name" : "Top 5 Highest Surge Queue Lengths",
-      "description" : null,
-      "widgetType" : "high-low-metric",
-      "properties" : {
-        "visualization" : null,
-        "showElementTotal" : "true",
-        "selectedAttributes" : "[]",
-        "elementScopeTags" : "[]",
-        "useElementNameContains" : "true",
-        "element_id" : null,
-        "elementScopeTypes" : "[\"ELB\"]",
-        "metricLimit" : "5",
-        "metricUnit" : null,
-        "metricAggs" : "[]",
-        "elementScopeIds" : "[]",
-        "elementScopeAttributes" : "[]",
-        "groupName" : null,
-        "elementNameContains" : null,
-        "showHighest" : "true",
-        "metric_fqn" : "aws.elb.surgequeuelength",
-        "width" : "auto",
-        "metrics" : "[]",
-        "selectedTab" : "graph"
+    "type": "DEFAULT",
+    "widgets": [
+      {
+        "id": "eddebbe1-1144-42ac-8dff-33957da742d2",
+        "name": "Top 5 Highest Surge Queue Lengths",
+        "properties": {
+          "elementScopeTypes": "[\"ELB\"]",
+          "metricLimit": "5",
+          "metric_fqn": "aws.elb.surgequeuelength",
+          "selectedTab": "graph",
+          "showElementTotal": "true",
+          "showHighest": "true",
+          "useElementNameContains": "true",
+          "width": "auto"
+        },
+        "widgetType": "high-low-metric"
+      },
+      {
+        "id": "bccc39bb-d0ee-4f35-9f0c-dac9c682a559",
+        "name": "Top 5 Slowest ELB",
+        "properties": {
+          "elementScopeTypes": "[\"ELB\"]",
+          "metricLimit": "5",
+          "metric_fqn": "aws.elb.latency",
+          "selectedTab": "graph",
+          "showElementTotal": "true",
+          "showHighest": "true",
+          "useElementNameContains": "true",
+          "width": "auto"
+        },
+        "widgetType": "high-low-metric"
+      },
+      {
+        "id": "cd230a8c-62b8-4b68-965d-7dbcb0f6302f",
+        "name": "Top 5 Unhealthy ELB",
+        "properties": {
+          "elementScopeTypes": "[\"ELB\"]",
+          "metricLimit": "5",
+          "metric_fqn": "aws.elb.unhealthyhostcount",
+          "selectedTab": "table",
+          "showElementTotal": "true",
+          "showHighest": "true",
+          "useElementNameContains": "true",
+          "width": "auto"
+        },
+        "widgetType": "high-low-metric"
+      },
+      {
+        "id": "37eb8e46-2acf-467d-8395-0c68cc66da2f",
+        "name": "ELB Data",
+        "properties": {
+          "elementScopeTypes": "[\"ELB\"]",
+          "metricLimit": "10",
+          "metrics": "[{\"fqn\":\"aws.elb.healthyhostcount\",\"aggFns\":[],\"aggFn\":\"sum\"},{\"fqn\":\"aws.elb.unhealthyhostcount\",\"aggFns\":[],\"aggFn\":\"sum\"}]",
+          "selectedAttributes": "[{\"name\":\"availabilityZones\"},{\"name\":\"region\"}]",
+          "selectedTab": "table",
+          "showElementTotal": "true",
+          "showHighest": "true",
+          "useElementNameContains": "true",
+          "width": "auto"
+        },
+        "widgetType": "multi-metric-table"
       }
-    }, {
-      "id" : "bccc39bb-d0ee-4f35-9f0c-dac9c682a559",
-      "name" : "Top 5 Slowest ELB",
-      "description" : null,
-      "widgetType" : "high-low-metric",
-      "properties" : {
-        "visualization" : null,
-        "showElementTotal" : "true",
-        "selectedAttributes" : "[]",
-        "elementScopeTags" : "[]",
-        "useElementNameContains" : "true",
-        "element_id" : null,
-        "elementScopeTypes" : "[\"ELB\"]",
-        "metricLimit" : "5",
-        "metricUnit" : null,
-        "metricAggs" : "[]",
-        "elementScopeIds" : "[]",
-        "elementScopeAttributes" : "[]",
-        "groupName" : null,
-        "elementNameContains" : null,
-        "showHighest" : "true",
-        "metric_fqn" : "aws.elb.latency",
-        "width" : "auto",
-        "metrics" : "[]",
-        "selectedTab" : "graph"
-      }
-    }, {
-      "id" : "cd230a8c-62b8-4b68-965d-7dbcb0f6302f",
-      "name" : "Top 5 Unhealthy ELB",
-      "description" : null,
-      "widgetType" : "high-low-metric",
-      "properties" : {
-        "showHighest" : "true",
-        "metric_fqn" : "aws.elb.unhealthyhostcount",
-        "showElementTotal" : "true",
-        "selectedAttributes" : "[]",
-        "width" : "auto",
-        "useElementNameContains" : "true",
-        "metricLimit" : "5",
-        "elementScopeTypes" : "[\"ELB\"]",
-        "metrics" : "[]",
-        "selectedTab" : "table"
-      }
-    }, {
-      "id" : "37eb8e46-2acf-467d-8395-0c68cc66da2f",
-      "name" : "ELB Data",
-      "description" : null,
-      "widgetType" : "multi-metric-table",
-      "properties" : {
-        "showElementTotal" : "true",
-        "selectedAttributes" : "[{\"name\":\"availabilityZones\"},{\"name\":\"region\"}]",
-        "useElementNameContains" : "true",
-        "element_id" : null,
-        "metricLimit" : "10",
-        "elementScopeTypes" : "[\"ELB\"]",
-        "metricUnit" : null,
-        "groupName" : null,
-        "showHighest" : "true",
-        "elementNameContains" : null,
-        "metric_fqn" : null,
-        "width" : "auto",
-        "metrics" : "[{\"fqn\":\"aws.elb.healthyhostcount\",\"aggFns\":[],\"aggFn\":\"sum\"},{\"fqn\":\"aws.elb.unhealthyhostcount\",\"aggFns\":[],\"aggFn\":\"sum\"}]",
-        "selectedTab" : "table"
-      }
-    } ],
-    "type" : "DEFAULT",
-    "private" : false
+    ]
   }
 }

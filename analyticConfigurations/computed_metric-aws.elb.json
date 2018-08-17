@@ -1,107 +1,115 @@
 {
-  "analyticConfiguration" : {
-    "tenantId" : null,
-    "type" : "COMPUTED_METRIC",
-    "id" : null,
-    "packageId" : null,
-    "name" : "AWS ELB",
-    "scope" : {
-      "elementName" : null,
-      "elementType" : "ELB",
-      "elementTags" : null,
-      "metricMatches" : null
+  "analyticConfiguration": {
+    "metrics": [
+      {
+        "match": "netuitive.aws.elb.totalbackendhttperrors",
+        "properties": {
+          "expression": "data['aws.elb.httpcode_backend_4xx'] == null ? 0 + (data['aws.elb.httpcode_backend_5xx'] == null ? 0 : data['aws.elb.httpcode_backend_5xx'].actual) : data['aws.elb.httpcode_backend_4xx'].actual + (data['aws.elb.httpcode_backend_5xx'] == null ? 0 : data['aws.elb.httpcode_backend_5xx'].actual)",
+          "fqn": "netuitive.aws.elb.totalbackendhttperrors",
+          "name": "Total Backend HTTP Errors"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.totalelbhttperrors",
+        "properties": {
+          "expression": "data['aws.elb.httpcode_elb_4xx'] == null ? 0 + (data['aws.elb.httpcode_elb_5xx'] == null ? 0 : data['aws.elb.httpcode_elb_5xx'].actual) : data['aws.elb.httpcode_elb_4xx'].actual + (data['aws.elb.httpcode_elb_5xx'] == null ? 0 : data['aws.elb.httpcode_elb_5xx'].actual)",
+          "fqn": "netuitive.aws.elb.totalelbhttperrors",
+          "name": "Total ELB HTTP Errors"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.backendconnectionerrorpercent",
+        "properties": {
+          "expression": "(data['aws.elb.requestcount'].actual == 0 || data['aws.elb.backendconnectionerrors'] == null) ? 0 : (data['aws.elb.backendconnectionerrors'].actual / data['aws.elb.requestcount'].actual)*100",
+          "fqn": "netuitive.aws.elb.backendconnectionerrorpercent",
+          "name": "Backend Connection Error Percent"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.httpcodeelberrorpercent",
+        "properties": {
+          "expression": "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['netuitive.aws.elb.totalelbhttperrors'].actual / data['aws.elb.requestcount'].actual)",
+          "fqn": "netuitive.aws.elb.httpcodeelberrorpercent",
+          "name": "ELB HTTP Error Percent"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.httpcodebackenderrorpercent",
+        "properties": {
+          "expression": "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['netuitive.aws.elb.totalbackendhttperrors'].actual / data['aws.elb.requestcount'].actual)",
+          "fqn": "netuitive.aws.elb.httpcodebackenderrorpercent",
+          "name": "Backend HTTP Error Percent"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.concurrency",
+        "properties": {
+          "expression": "data['aws.elb.latency'].actual * data['aws.elb.requestcount'].actual / 300",
+          "fqn": "netuitive.aws.elb.concurrency",
+          "name": "Concurrency"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.surgequeueutilization",
+        "properties": {
+          "expression": "data['aws.elb.surgequeuelength'].max / 1024 * 100",
+          "fqn": "netuitive.aws.elb.surgequeueutilization",
+          "name": "Surge Queue Utilization"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.unhealthyhostpercent",
+        "properties": {
+          "expression": "(data['aws.elb.unhealthyhostcount'].actual + data['aws.elb.healthyhostcount'].actual) == 0 ? 0 : (data['aws.elb.unhealthyhostcount'].actual / (data['aws.elb.unhealthyhostcount'].actual + data['aws.elb.healthyhostcount'].actual))*100",
+          "fqn": "netuitive.aws.elb.unhealthyhostpercent",
+          "name": "Unhealthy Host Percent"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.requestspersecond",
+        "properties": {
+          "expression": "data['aws.elb.requestcount'].actual / 300.0",
+          "fqn": "netuitive.aws.elb.requestspersecond",
+          "name": "Requests per Second"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.httpcodeelb4xxerrorpercent",
+        "properties": {
+          "expression": "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['aws.elb.httpcode_elb_4xx'].actual / data['aws.elb.requestcount'].actual)",
+          "fqn": "netuitive.aws.elb.httpcodeelb4xxerrorpercent",
+          "name": "ELB HTTP 4xx Error Percent"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.httpcodeelb5xxerrorpercent",
+        "properties": {
+          "expression": "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['aws.elb.httpcode_elb_5xx'].actual / data['aws.elb.requestcount'].actual)",
+          "fqn": "netuitive.aws.elb.httpcodeelb5xxerrorpercent",
+          "name": "ELB HTTP 5xx Error Percent"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.httpcodebackend4xxerrorpercent",
+        "properties": {
+          "expression": "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['aws.elb.httpcode_backend_4xx'].actual / data['aws.elb.requestcount'].actual)",
+          "fqn": "netuitive.aws.elb.httpcodebackend4xxerrorpercent",
+          "name": "Backend HTTP 4xx Error Percent"
+        }
+      },
+      {
+        "match": "netuitive.aws.elb.httpcodebackend5xxerrorpercent",
+        "properties": {
+          "expression": "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['aws.elb.httpcode_backend_5xx'].actual / data['aws.elb.requestcount'].actual)",
+          "fqn": "netuitive.aws.elb.httpcodebackend5xxerrorpercent",
+          "name": "Backend HTTP 5xx Error Percent"
+        }
+      }
+    ],
+    "name": "AWS ELB",
+    "scope": {
+      "elementType": "ELB"
     },
-    "metrics" : [ {
-      "match" : "netuitive.aws.elb.totalbackendhttperrors",
-      "properties" : {
-        "expression" : "data['aws.elb.httpcode_backend_4xx'] == null ? 0 + (data['aws.elb.httpcode_backend_5xx'] == null ? 0 : data['aws.elb.httpcode_backend_5xx'].actual) : data['aws.elb.httpcode_backend_4xx'].actual + (data['aws.elb.httpcode_backend_5xx'] == null ? 0 : data['aws.elb.httpcode_backend_5xx'].actual)",
-        "fqn" : "netuitive.aws.elb.totalbackendhttperrors",
-        "name" : "Total Backend HTTP Errors"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.totalelbhttperrors",
-      "properties" : {
-        "expression" : "data['aws.elb.httpcode_elb_4xx'] == null ? 0 + (data['aws.elb.httpcode_elb_5xx'] == null ? 0 : data['aws.elb.httpcode_elb_5xx'].actual) : data['aws.elb.httpcode_elb_4xx'].actual + (data['aws.elb.httpcode_elb_5xx'] == null ? 0 : data['aws.elb.httpcode_elb_5xx'].actual)",
-        "fqn" : "netuitive.aws.elb.totalelbhttperrors",
-        "name" : "Total ELB HTTP Errors"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.backendconnectionerrorpercent",
-      "properties" : {
-        "expression" : "(data['aws.elb.requestcount'].actual == 0 || data['aws.elb.backendconnectionerrors'] == null) ? 0 : (data['aws.elb.backendconnectionerrors'].actual / data['aws.elb.requestcount'].actual)*100",
-        "fqn" : "netuitive.aws.elb.backendconnectionerrorpercent",
-        "name" : "Backend Connection Error Percent"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.httpcodeelberrorpercent",
-      "properties" : {
-        "expression" : "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['netuitive.aws.elb.totalelbhttperrors'].actual / data['aws.elb.requestcount'].actual)",
-        "fqn" : "netuitive.aws.elb.httpcodeelberrorpercent",
-        "name" : "ELB HTTP Error Percent"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.httpcodebackenderrorpercent",
-      "properties" : {
-        "expression" : "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['netuitive.aws.elb.totalbackendhttperrors'].actual / data['aws.elb.requestcount'].actual)",
-        "fqn" : "netuitive.aws.elb.httpcodebackenderrorpercent",
-        "name" : "Backend HTTP Error Percent"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.concurrency",
-      "properties" : {
-        "expression" : "data['aws.elb.latency'].actual * data['aws.elb.requestcount'].actual / 300",
-        "fqn" : "netuitive.aws.elb.concurrency",
-        "name" : "Concurrency"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.surgequeueutilization",
-      "properties" : {
-        "expression" : "data['aws.elb.surgequeuelength'].max / 1024 * 100",
-        "fqn" : "netuitive.aws.elb.surgequeueutilization",
-        "name" : "Surge Queue Utilization"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.unhealthyhostpercent",
-      "properties" : {
-        "expression" : "(data['aws.elb.unhealthyhostcount'].actual + data['aws.elb.healthyhostcount'].actual) == 0 ? 0 : (data['aws.elb.unhealthyhostcount'].actual / (data['aws.elb.unhealthyhostcount'].actual + data['aws.elb.healthyhostcount'].actual))*100",
-        "fqn" : "netuitive.aws.elb.unhealthyhostpercent",
-        "name" : "Unhealthy Host Percent"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.requestspersecond",
-      "properties" : {
-        "expression" : "data['aws.elb.requestcount'].actual / 300.0",
-        "fqn" : "netuitive.aws.elb.requestspersecond",
-        "name" : "Requests per Second"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.httpcodeelb4xxerrorpercent",
-      "properties" : {
-        "expression" : "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['aws.elb.httpcode_elb_4xx'].actual / data['aws.elb.requestcount'].actual)",
-        "fqn" : "netuitive.aws.elb.httpcodeelb4xxerrorpercent",
-        "name" : "ELB HTTP 4xx Error Percent"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.httpcodeelb5xxerrorpercent",
-      "properties" : {
-        "expression" : "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['aws.elb.httpcode_elb_5xx'].actual / data['aws.elb.requestcount'].actual)",
-        "fqn" : "netuitive.aws.elb.httpcodeelb5xxerrorpercent",
-        "name" : "ELB HTTP 5xx Error Percent"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.httpcodebackend4xxerrorpercent",
-      "properties" : {
-        "expression" : "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['aws.elb.httpcode_backend_4xx'].actual / data['aws.elb.requestcount'].actual)",
-        "fqn" : "netuitive.aws.elb.httpcodebackend4xxerrorpercent",
-        "name" : "Backend HTTP 4xx Error Percent"
-      }
-    }, {
-      "match" : "netuitive.aws.elb.httpcodebackend5xxerrorpercent",
-      "properties" : {
-        "expression" : "data['aws.elb.requestcount'].actual == 0 ? 0 : 100 * (data['aws.elb.httpcode_backend_5xx'].actual / data['aws.elb.requestcount'].actual)",
-        "fqn" : "netuitive.aws.elb.httpcodebackend5xxerrorpercent",
-        "name" : "Backend HTTP 5xx Error Percent"
-      }
-    } ]
+    "type": "COMPUTED_METRIC"
   }
 }
