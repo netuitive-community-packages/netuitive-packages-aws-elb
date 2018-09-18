@@ -1,0 +1,32 @@
+{
+  "policy": {
+    "actions": [
+      {
+        "category": 3,
+        "type": "event"
+      }
+    ],
+    "conditions": [
+      {
+        "analytic": "actual",
+        "level": 5,
+        "metric": "netuitive.aws.elb.httpcodeelberrorpercent",
+        "operator": ">"
+      },
+      {
+        "analytic": "actual",
+        "level": 1000,
+        "metric": "aws.elb.requestcount",
+        "operator": ">="
+      }
+    ],
+    "deleted": false,
+    "description": "This policy will generate a Critical Alert when the ELB error rate exceeds 5% with a minimum of 1000 requests. You may wish to tune either the 1,000 request count threshold, the 5% error threshold, or both, to better suit your environment.",
+    "duration": 900,
+    "enabled": true,
+    "name": "AWS ELB - High Error Rate",
+    "scope": {
+      "elementType": "ELB"
+    }
+  }
+}

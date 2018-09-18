@@ -1,106 +1,106 @@
 {
-  "id" : "netuitive.packages.aws.elb",
-  "version" : "1.7.1",
-  "manifest" : {
-    "name" : "Netuitive Packages AWS ELB",
-    "description" : "A set of Netuitive analytics configurations, polices, dashboards, and reports that are used to monitor performance of AWS Elastic Load Balancer (ELB) resources.",
-    "author" : {
-      "name" : "Netuitive Research",
-      "email" : "research@netuitive.com"
+  "id": "netuitive.packages.aws.elb",
+  "version": "1.7.1",
+  "manifest": {
+    "name": "Netuitive Packages AWS ELB",
+    "description": "A set of Netuitive analytics configurations, polices, dashboards, and reports that are used to monitor performance of AWS Elastic Load Balancer (ELB) resources.",
+    "author": {
+      "name": "Netuitive Research",
+      "email": "research@netuitive.com"
     },
-    "distro" : {
-      "logo" : "http://assets.app.netuitive.com/pkg/logo/netuitive/banner_logo.png",
-      "download" : "https://github.com/netuitive-community-packages/netuitive-packages-aws-elb/archive/master.zip"
+    "distro": {
+      "logo": "http://assets.app.netuitive.com/pkg/logo/netuitive/banner_logo.png",
+      "download": "https://github.com/netuitive-community-packages/netuitive-packages-aws-elb/archive/master.zip"
     },
-    "compatibility" : [ "AWS:ELB" ],
-    "tags" : [ ],
-    "checksum" : null
+    "compatibility": ["AWS:ELB"],
+    "tags": [],
+    "checksum": null
   },
-  "policies" : [ {
-    "data" : {
-      "file" : "policies/aws.elb.-.elevated.backend.error.rate.(high.volume,.high.error.rate).json",
-      "encoding" : "application/json",
-      "content" : null
+  "policies": [{
+    "data": {
+      "file": "policies/aws.elb.high.backend.error.rate.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "policies/aws.elb.-.elevated.backend.error.rate.(high.volume,.low.error.rate).json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "policies/aws.elb.high.elb.error.rate.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "policies/aws.elb.-.elevated.backend.error.rate.(low.volume).json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "policies/aws.elb.sudden.increase.backend.error.rate.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "policies/aws.elb.-.elevated.latency.json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "policies/aws.elb.sudden.increase.error.rate.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "policies/aws.elb.-.surge.queue.utilization.above.5%.json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "policies/aws.elb.sudden.increase.latency.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "policies/aws.elb.-.surge.queue.utilization.above.50%.json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "policies/aws.elb.surge.queue.utilization.above.5%.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "policies/aws.elb.-.elevated.elb.error.rate.json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "policies/aws.elb.surge.queue.utilization.above.50%.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "policies/aws.elb.-.unhealthy.host.percent.above.50%.json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "policies/aws.elb.unhealthy.host.percent.above.50%.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "policies/aws.elb.-.unhealthy.host.percent.above.75%.json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "policies/aws.elb.unhealthy.host.percent.above.75%.json",
+      "encoding": "application/json",
+      "content": null
     }
-  } ],
-  "analyticConfigurations" : [ {
-    "data" : {
-      "file" : "analyticConfigurations/ace-aws.elb.json",
-      "encoding" : "application/json",
-      "content" : null
-    }
-  }, {
-    "data" : {
-      "file" : "analyticConfigurations/computed_metric-aws.elb.json",
-      "encoding" : "application/json",
-      "content" : null
+  }],
+  "analyticConfigurations": [{
+    "data": {
+      "file": "analyticConfigurations/ace-aws.elb.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "analyticConfigurations/metric_meta-aws.elb.json",
-      "encoding" : "application/json",
-      "content" : null
-    }
-  } ],
-  "dashboards" : [ {
-    "data" : {
-      "file" : "dashboards/aws.elb.summary.json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "analyticConfigurations/computed_metric-aws.elb.json",
+      "encoding": "application/json",
+      "content": null
     }
   }, {
-    "data" : {
-      "file" : "dashboards/aws.elb.element.detail.json",
-      "encoding" : "application/json",
-      "content" : null
+    "data": {
+      "file": "analyticConfigurations/metric_meta-aws.elb.json",
+      "encoding": "application/json",
+      "content": null
     }
-  } ]
+  }],
+  "dashboards": [{
+    "data": {
+      "file": "dashboards/aws.elb.summary.json",
+      "encoding": "application/json",
+      "content": null
+    }
+  }, {
+    "data": {
+      "file": "dashboards/aws.elb.element.detail.json",
+      "encoding": "application/json",
+      "content": null
+    }
+  }]
 }

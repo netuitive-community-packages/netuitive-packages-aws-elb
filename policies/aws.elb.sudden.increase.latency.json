@@ -1,0 +1,38 @@
+{
+  "policy": {
+    "actions": [
+      {
+        "category": 3,
+        "type": "event"
+      }
+    ],
+    "conditions": [
+      {
+        "analytic": "suddenDeviation",
+        "level": 30,
+        "metric": "aws.elb.latency",
+        "operator": ">"
+      },
+      {
+        "analytic": "actual",
+        "level": 0.1,
+        "metric": "aws.elb.latency",
+        "operator": ">"
+      },
+      {
+        "analytic": "actual",
+        "level": 1000,
+        "metric": "aws.elb.requestcount",
+        "operator": ">="
+      }
+    ],
+    "deleted": false,
+    "description": "This policy will generate a Critical alert for a sudden change in Latency that exceeds 30% with a minimum of 100ms and 1000 requests. You may wish to tune these thresholds to better suit your environment.",
+    "duration": 300,
+    "enabled": true,
+    "name": "AWS ELB - Sudden Increase Latency",
+    "scope": {
+      "elementType": "ELB"
+    }
+  }
+}
