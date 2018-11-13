@@ -50,7 +50,7 @@
       {
         "match": "aws.elb\\..*healthyhostcount",
         "properties": {
-          "sparseDataStrategy": "ReplaceWithZero"
+          "sparseDataStrategy": "ReplaceWithLast"
         }
       },
       {
