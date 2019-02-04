@@ -4,6 +4,10 @@ For detailed information on this package, please refer to the [online documentat
 
 ## Release History
 
+### Version 1.8.0
+
+* Convert computed metrics to new format
+
 ### Version 1.7.1
 
 * Adjusted build to use metricly-cli for validation
