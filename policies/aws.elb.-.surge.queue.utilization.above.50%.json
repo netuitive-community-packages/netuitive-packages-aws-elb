@@ -20,7 +20,9 @@
     "enabled": true,
     "name": "AWS ELB - Surge Queue Utilization Above 50%",
     "scope": {
-      "elementType": "ELB"
+      "elementTypes": [
+        "ELB"
+      ]
     }
   }
 }

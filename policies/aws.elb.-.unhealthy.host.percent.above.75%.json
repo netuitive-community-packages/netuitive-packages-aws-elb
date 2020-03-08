@@ -20,7 +20,9 @@
     "enabled": false,
     "name": "AWS ELB - Unhealthy Host Percent Above 75%",
     "scope": {
-      "elementType": "ELB"
+      "elementTypes": [
+        "ELB"
+      ]
     }
   }
 }

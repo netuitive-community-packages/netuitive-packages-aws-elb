@@ -30,7 +30,9 @@
     "enabled": true,
     "name": "AWS ELB - Elevated Backend Error Rate (Low Volume)",
     "scope": {
-      "elementType": "ELB"
+      "elementTypes": [
+        "ELB"
+      ]
     }
   }
 }
