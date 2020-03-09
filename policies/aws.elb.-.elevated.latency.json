@@ -35,7 +35,9 @@
     "enabled": true,
     "name": "AWS ELB - Elevated Latency",
     "scope": {
-      "elementType": "ELB"
+      "elementTypes": [
+        "ELB"
+      ]
     }
   }
 }

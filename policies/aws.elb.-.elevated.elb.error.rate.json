@@ -36,7 +36,9 @@
     "enabled": true,
     "name": "AWS ELB - Elevated ELB Error Rate",
     "scope": {
-      "elementType": "ELB"
+      "elementTypes": [
+        "ELB"
+      ]
     }
   }
 }
